@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeView from './HomeView';
+import TechNews from './Users';
+import NavigationMenu from './NavigationMenu';
 
-function App() {
+const App = () => {
+  // const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+  //   document.title = `clicked ${count} times`;
+  // });
+
+  // const increment = () => {
+  //   setCount(count + 1);
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <Router>
+    <div>
+      <h2>react project</h2>
+      <NavigationMenu />
+      {/* <button onClick={increment}>pippato {count} {count == 1 ? 'volta' : 'volte'}</button> */}
+        <Routes>
+          <Route path="/" exact element={<HomeView />} />
+          <Route path="/users" element={<TechNews />} />
+        </Routes>
     </div>
-  );
+  </Router>
+  )
 }
 
 export default App;
