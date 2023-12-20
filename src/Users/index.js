@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import axios from "axios";
+//import axios from "axios";
 
 const TechNews = () => {
     // state 
@@ -11,7 +11,8 @@ const TechNews = () => {
 
     const [searchQuery, setSearchQuery] = useState(10);
 
-    const [url, setUrl] = useState("https://buck1.ams3.cdn.digitaloceanspaces.com/main/data.json");
+    const [url, setUrl] = useState("https://urchin-app-tpqiz.ondigitalocean.app/notizie.php");
+    //const [url, setUrl] = useState("https://buck1.ams3.cdn.digitaloceanspaces.com/main/data.json");
     //const [url, setUrl] = useState("https://randomuser.me/api/?results=10");
 
     
@@ -24,7 +25,8 @@ const TechNews = () => {
             fetch(endpoint)
             .then(result => result.json())
             //.then(data => setNews(data.results), setLoading(false))
-            .then(data => setNews(data.notizie_tecnologia), setLoading(false))
+            //.then(data => setNews(data.notizie_tecnologia), setLoading(false))
+            .then(data => setNews(data), setLoading(false))
             .catch(error => console.log(error));
         }, 1000 );
     };
@@ -57,7 +59,7 @@ const TechNews = () => {
     )  
 
     const showUsers = () =>{
-        return users.map((n, i) => (<p key={i}>{n.titolo} {n.testo} {n.foto}</p>))
+        return users.map((n, i) => (<p key={i}>{n.titolo} {n.testo} {n.path_immagine}</p>))
     }
 
     return (
